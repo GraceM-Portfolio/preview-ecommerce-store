@@ -38,7 +38,6 @@ const allProducts = [
   // Skincare
   { id: "1", name: "Face Serum (Instant Glow)", price: 49, image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400", category: "Serum", mainTab: "skincare", sold: 234, rating: 4.8, isNew: true },
   { id: "2", name: "Daily Body Lotion (Moisturizing)", price: 29, image: "https://images.unsplash.com/photo-1556229162-5c63ed9c4efb?w=400", category: "Lotion", mainTab: "skincare", sold: 189, rating: 4.7 },
-  // Replace the Sunscreen entry (id: 3)
   { id: "3", name: "Sunscreen (SPF 50)", price: 35,  image: "https://images.unsplash.com/photo-1556229162-5c63ed9c4efb?w=400", category: "Sunscreen", mainTab: "skincare", sold: 456, rating: 4.9 },
 
   { id: "4", name: "Vitamin C Brightening Serum", price: 59, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400", category: "Serum", mainTab: "skincare", sold: 312, rating: 4.9, isNew: true },
@@ -141,7 +140,8 @@ function GlowAndGo() {
     gridItems.push({ isSeeMore: true, remainingCount: filteredProducts.length - displayLimit });
   }
 
-const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
+  // --- FIX: Use Array.from instead of spread on Set ---
+  const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
   const limitedCategories = allCategories.slice(0, 3);
   const activeTabGradient = tabs.find(t => t.id === activeTab)?.gradient || "from-gray-700 to-gray-600";
 
@@ -202,33 +202,33 @@ const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
       </header>
 
      {/* HERO */}
-<section className="relative h-[60vh] sm:h-[70vh] flex items-center overflow-hidden">
-  <Image src={heroSlides[heroIndex].image} alt="hero" fill className="object-cover" priority />
-  <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-  <div className="relative z-10 px-4 sm:px-8 text-white max-w-2xl">
-    <h2 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight mb-3">
-      {heroSlides[heroIndex].title}
-    </h2>
-    <p className="text-xl sm:text-2xl font-light opacity-90">
-      {heroSlides[heroIndex].subtitle}
-    </p>
-    <button className="mt-6 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium hover:bg-white/30 transition">
-      Shop Now
-    </button>
-  </div>
-  <button
-    onClick={prevHero}
-    className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
-  >
-    <ChevronLeft size={24} />
-  </button>
-  <button
-    onClick={nextHero}
-    className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
-  >
-    <ChevronRight size={24} />
-  </button>
-</section>
+      <section className="relative h-[60vh] sm:h-[70vh] flex items-center overflow-hidden">
+        <Image src={heroSlides[heroIndex].image} alt="hero" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+        <div className="relative z-10 px-4 sm:px-8 text-white max-w-2xl">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight mb-3">
+            {heroSlides[heroIndex].title}
+          </h2>
+          <p className="text-xl sm:text-2xl font-light opacity-90">
+            {heroSlides[heroIndex].subtitle}
+          </p>
+          <button className="mt-6 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/40 rounded-full text-sm font-medium hover:bg-white/30 transition">
+            Shop Now
+          </button>
+        </div>
+        <button
+          onClick={prevHero}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={nextHero}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
+        >
+          <ChevronRight size={24} />
+        </button>
+      </section>
 
       {/* WEEKLY DEALS – LANDSCAPE ORIENTED */}
       <section className="py-12 bg-gray-50 border-y border-gray-100">
@@ -279,9 +279,9 @@ const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 text-center">
-  <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-gray-900">Our Products</h1>
-  <p className="text-gray-500 mt-2">Discover premium skincare, accessories, outfits and bundles.</p>
-</div>
+        <h1 className="text-4xl sm:text-5xl font-light tracking-tight text-gray-900">Our Products</h1>
+        <p className="text-gray-500 mt-2">Discover premium skincare, accessories, outfits and bundles.</p>
+      </div>
 
       {/* TABS */}
       <div className="sticky top-[65px] z-40 bg-white/90 backdrop-blur-sm border-b border-gray-100">
@@ -356,8 +356,6 @@ const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
         </div>
       </div>
 
-    
-
       {/* PRODUCT GRID */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         {filteredProducts.length === 0 ? (
@@ -385,8 +383,8 @@ const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
               if (!product || !product.id) return null;
               return (
                 <Link key={product.id} href={`/product/${product.id}`} className="cursor-pointer">
-                <ProductCard product={product} addToCart={addToCart} isDeal={false} />
-              </Link>
+                  <ProductCard product={product} addToCart={addToCart} isDeal={false} />
+                </Link>
               );
             })}
           </div>
@@ -474,7 +472,6 @@ const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
 
       {/* MODALS */}
       <AnimatePresence>
- 
         {isAuthModalOpen && <AuthModal />}
         {showAccount && <AccountPanel />}
         {showMpesaModal && <MpesaModal amount={totalPrice} onClose={() => setShowMpesaModal(false)} />}
