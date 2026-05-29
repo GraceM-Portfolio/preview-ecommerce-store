@@ -59,7 +59,7 @@ const allProducts = [
   
   // Bundles
   { id: "b1", name: "Glow Serum + Lotion Bundle", price: 69, originalPrice: 78, image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400", category: "Bundle", mainTab: "bundles", sold: 78, rating: 4.9, isBundle: true },
-  { id: "b2", name: "Sun Protection Kit", price: 59, originalPrice: 75, image: "https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400", category: "Bundle", mainTab: "bundles", sold: 42, rating: 4.8, isBundle: true },
+  { id: "b2", name: "Urban Wear Kit", price: 59, originalPrice: 75, image: "https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400", category: "Bundle", mainTab: "bundles", sold: 42, rating: 4.8, isBundle: true },
   { id: "b3", name: "Cold Weather Combo", price: 149, originalPrice: 198, image: "https://images.unsplash.com/photo-1485527691629-8e370684924c?w=400", category: "Bundle", mainTab: "bundles", sold: 35, rating: 4.7, isBundle: true },
 ];
 
