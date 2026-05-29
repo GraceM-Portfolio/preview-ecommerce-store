@@ -49,7 +49,7 @@ const allProducts = [
   { id: "8", name: "Classic Leather Watch", price: 89, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400", category: "Watches", mainTab: "accessories", sold: 89, rating: 4.8, isNew: true },
   { id: "9", name: "Polarized Sunglasses", price: 59, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400", category: "Eyewear", mainTab: "accessories", sold: 156, rating: 4.7 },
   { id: "10", name: "Leather Belt", price: 39, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", category: "Belts", mainTab: "accessories", sold: 98, rating: 4.6 },
-  { id: "11", name: "Silver Necklace", price: 79, image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400", category: "Jewelry", mainTab: "accessories", sold: 67, rating: 4.9, isNew: true },
+  { id: "11", name: "Gemstone Necklace", price: 79, image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400", category: "Jewelry", mainTab: "accessories", sold: 67, rating: 4.9, isNew: true },
   
   // Outfit
   { id: "12", name: "Cotton Summer Dress", price: 69, image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400", category: "Dresses", mainTab: "outfit", sold: 112, rating: 4.8 },
