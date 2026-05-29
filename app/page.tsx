@@ -141,7 +141,7 @@ function GlowAndGo() {
     gridItems.push({ isSeeMore: true, remainingCount: filteredProducts.length - displayLimit });
   }
 
-  const allCategories = [...new Set(tabProducts.map((p) => p.category))];
+const allCategories = Array.from(new Set(tabProducts.map((p) => p.category)));
   const limitedCategories = allCategories.slice(0, 3);
   const activeTabGradient = tabs.find(t => t.id === activeTab)?.gradient || "from-gray-700 to-gray-600";
 
