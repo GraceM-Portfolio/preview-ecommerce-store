@@ -48,19 +48,19 @@ const allProducts = [
   // Accessories
   { id: "8", name: "Classic Leather Watch", price: 89, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400", category: "Watches", mainTab: "accessories", sold: 89, rating: 4.8, isNew: true },
   { id: "9", name: "Polarized Sunglasses", price: 59, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400", category: "Eyewear", mainTab: "accessories", sold: 156, rating: 4.7 },
-  { id: "10", name: "Leather Belt", price: 39, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", category: "Belts", mainTab: "accessories", sold: 98, rating: 4.6 },
+  { id: "10", name: "Waterproof Backpack", price: 39, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400", category: "Belts", mainTab: "accessories", sold: 98, rating: 4.6 },
   { id: "11", name: "Gemstone Necklace", price: 79, image: "https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?w=400", category: "Jewelry", mainTab: "accessories", sold: 67, rating: 4.9, isNew: true },
   
   // Outfit
   { id: "12", name: "Cotton Summer Dress", price: 69, image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400", category: "Dresses", mainTab: "outfit", sold: 112, rating: 4.8 },
   { id: "13", name: "Linen Button Shirt", price: 49, image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400", category: "Shirts", mainTab: "outfit", sold: 203, rating: 4.7, isNew: true },
   { id: "14", name: "Slim Fit Jeans", price: 65, image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400", category: "Jeans", mainTab: "outfit", sold: 178, rating: 4.6 },
-  { id: "15", name: "Blazer Jacket", price: 99, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400", category: "Jackets", mainTab: "outfit", sold: 54, rating: 4.9, isNew: true },
+  { id: "15", name: "Classic Bomber Jacket", price: 99, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400", category: "Jackets", mainTab: "outfit", sold: 54, rating: 4.9, isNew: true },
   
   // Bundles
   { id: "b1", name: "Glow Serum + Lotion Bundle", price: 69, originalPrice: 78, image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400", category: "Bundle", mainTab: "bundles", sold: 78, rating: 4.9, isBundle: true },
   { id: "b2", name: "Sun Protection Kit", price: 59, originalPrice: 75, image: "https://images.unsplash.com/photo-1520975661595-6453be3f7070?w=400", category: "Bundle", mainTab: "bundles", sold: 42, rating: 4.8, isBundle: true },
-  { id: "b3", name: "Office Ready Combo", price: 149, originalPrice: 198, image: "https://images.unsplash.com/photo-1485527691629-8e370684924c?w=400", category: "Bundle", mainTab: "bundles", sold: 35, rating: 4.7, isBundle: true },
+  { id: "b3", name: "Cold Weather Combo", price: 149, originalPrice: 198, image: "https://images.unsplash.com/photo-1485527691629-8e370684924c?w=400", category: "Bundle", mainTab: "bundles", sold: 35, rating: 4.7, isBundle: true },
 ];
 
 const heroSlides = [
