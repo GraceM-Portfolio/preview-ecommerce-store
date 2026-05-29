@@ -1,11 +1,17 @@
-import * as React from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+// components/MagneticButton.tsx
+import React from "react";
+import { motion } from "framer-motion";
 
-type ButtonProps = HTMLMotionProps<"button"> & {
+// Define your own props, excluding 'ref' completely
+type MagneticButtonProps = {
   children: React.ReactNode;
+  // add any other custom props you need
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  // ... other attributes you want to pass manually
 };
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const MagneticButton = React.forwardRef<HTMLButtonElement, MagneticButtonProps>(
   ({ children, ...props }, ref) => {
     return (
       <motion.button
@@ -20,5 +26,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-Button.displayName = "Button";
-export default Button;
+MagneticButton.displayName = "MagneticButton";
+export default MagneticButton;
