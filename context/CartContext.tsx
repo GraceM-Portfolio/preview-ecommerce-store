@@ -1,33 +1,92 @@
+// context/CartContext.tsx
 "use client";
-import { createContext, useContext, useState } from "react";
 
-type CartItem = { id: string; name: string; price: number; image: string; quantity: number };
-const CartContext = createContext<any>(null);
+import React, { createContext, useContext, useState } from "react";
+
+// ---------- types ----------
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
+
+// minimal product shape for addToCart
+interface AddToCartProduct {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
+
+interface CartContextType {
+  items: CartItem[];
+  totalItems: number;
+  totalPrice: number;
+  addToCart: (product: AddToCartProduct) => void;
+  removeFromCart: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+  showMpesaModal: boolean;
+  setShowMpesaModal: (v: boolean) => void;
+}
+
+// ---------- context ----------
+const CartContext = createContext<CartContextType | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const addToCart = (p) => {
-    setItems(prev => {
-      const existing = prev.find(i => i.id === p.id);
-      if (existing) return prev.map(i => i.id === p.id ? { ...i, quantity: i.quantity + 1 } : i);
-      return [...prev, { ...p, quantity: 1 }];
+  const [showMpesaModal, setShowMpesaModal] = useState(false);
+
+  const addToCart = (product: AddToCartProduct) => {
+    setItems((prev) => {
+      const existing = prev.find((i) => i.id === product.id);
+      if (existing) {
+        return prev.map((i) =>
+          i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+      }
+      return [...prev, { ...product, quantity: 1 }];
     });
-    setIsCartOpen(true);
   };
-  const removeFromCart = (id) => setItems(prev => prev.filter(i => i.id !== id));
-  const updateQuantity = (id, qty) => {
-    if (qty <= 0) removeFromCart(id);
-    else setItems(prev => prev.map(i => i.id === id ? { ...i, quantity: qty } : i));
+
+  const removeFromCart = (id: string) => {
+    setItems((prev) => prev.filter((i) => i.id !== id));
   };
-  const clearCart = () => setItems([]);
-  const closeCart = () => setIsCartOpen(false);
-  const totalItems = items.reduce((s, i) => s + i.quantity, 0);
-  const totalPrice = items.reduce((s, i) => s + i.price * i.quantity, 0);
+
+  const updateQuantity = (id: string, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(id);
+      return;
+    }
+    setItems((prev) =>
+      prev.map((i) => (i.id === id ? { ...i, quantity } : i))
+    );
+  };
+
+  const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
+  const totalPrice = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice, isCartOpen, closeCart }}>
+    <CartContext.Provider
+      value={{
+        items,
+        totalItems,
+        totalPrice,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        showMpesaModal,
+        setShowMpesaModal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
 }
-export const useCart = () => useContext(CartContext);
+
+export function useCart() {
+  const context = useContext(CartContext);
+  if (!context) throw new Error("useCart must be used within CartProvider");
+  return context;
+}
