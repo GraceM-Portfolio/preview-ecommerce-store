@@ -42,8 +42,8 @@ const allProducts = [
 
   { id: "4", name: "Vitamin C Brightening Serum", price: 59, image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400", category: "Serum", mainTab: "skincare", sold: 312, rating: 4.9, isNew: true },
   { id: "5", name: "Hyaluronic Acid Cream", price: 45, image: "https://images.unsplash.com/photo-1567721913486-6585f069b332?w=400", category: "Moisturizer", mainTab: "skincare", sold: 145, rating: 4.8, isNew: true },
-  { id: "6", name: "Shea Butter Balm", price: 22, image: "https://images.unsplash.com/photo-1591370874773-6702e8f12a22?w=400", category: "Balm", mainTab: "skincare", sold: 98, rating: 4.7 },
-  { id: "7", name: "Ceramide Night Cream", price: 52, image: "https://images.unsplash.com/photo-1616690185667-b5bf60b8adbb?w=400", category: "Moisturizer", mainTab: "skincare", sold: 207, rating: 4.9 },
+  { id: "6", name: "Shea Butter Balm", price: 22, image: "https://images.unsplash.com/photo-1567721913486-6585f069b332?w=400", category: "Balm", mainTab: "skincare", sold: 98, rating: 4.7 },
+  { id: "7", name: "Ceramide Night Cream", price: 52, image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400", category: "Moisturizer", mainTab: "skincare", sold: 207, rating: 4.9 },
   
   // Accessories
   { id: "8", name: "Classic Leather Watch", price: 89, image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400", category: "Watches", mainTab: "accessories", sold: 89, rating: 4.8, isNew: true },
