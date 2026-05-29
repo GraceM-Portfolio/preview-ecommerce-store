@@ -135,7 +135,8 @@ function GlowAndGo() {
   const displayedProducts = filteredProducts.slice(0, displayLimit);
   const hasMoreProducts = filteredProducts.length > displayLimit;
 
-  const gridItems = [...displayedProducts];
+  // --- FIX: Allow mixed array types ---
+  const gridItems: any[] = [...displayedProducts];
   if (hasMoreProducts) {
     gridItems.push({ isSeeMore: true, remainingCount: filteredProducts.length - displayLimit });
   }
@@ -203,7 +204,6 @@ function GlowAndGo() {
      {/* HERO */}
 <section className="relative h-[60vh] sm:h-[70vh] flex items-center overflow-hidden">
   <Image src={heroSlides[heroIndex].image} alt="hero" fill className="object-cover" priority />
-  {/* Add pointer-events-none so clicks pass through */}
   <div className="absolute inset-0 bg-black/30 pointer-events-none" />
   <div className="relative z-10 px-4 sm:px-8 text-white max-w-2xl">
     <h2 className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tight mb-3">
@@ -216,7 +216,6 @@ function GlowAndGo() {
       Shop Now
     </button>
   </div>
-  {/* Buttons with z-10 to ensure they are above everything */}
   <button
     onClick={prevHero}
     className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
@@ -226,7 +225,6 @@ function GlowAndGo() {
   <button
     onClick={nextHero}
     className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 p-2 rounded-full text-white transition z-10"
-    
   >
     <ChevronRight size={24} />
   </button>
